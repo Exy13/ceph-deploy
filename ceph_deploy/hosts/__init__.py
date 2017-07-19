@@ -54,11 +54,11 @@ def get(hostname,
         if 'already closed' in getattr(error, 'message', ''):
             raise RuntimeError('remote connection got closed, ensure ``requiretty`` is disabled for %s' % hostname)
     distro_name, release, codename = conn.remote_module.platform_information()
-    if not codename or not _get_distro(distro_name):
-        raise exc.UnsupportedPlatform(
-            distro=distro_name,
-            codename=codename,
-            release=release)
+#    if not codename or not _get_distro(distro_name):
+#        raise exc.UnsupportedPlatform(
+#            distro=distro_name,
+#            codename=codename,
+#            release=release)
 
     machine_type = conn.remote_module.machine_type()
     module = _get_distro(distro_name, use_rhceph=use_rhceph)
